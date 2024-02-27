@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Orders</title>
+<style>
+.item button{
+padding: 5px 30px;
+border: none;
+outline: none;
+background-color: #9966cc;
+color: white;
+cursor: pointer;
+border-radius: 4px;
+font-size: 17px;
+transition: 0.2s all;
+}
+.item button:hover{
+transform: scale(1.08);
+}
+.items{
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+padding: 30px 20px;
+grid-column-gap: 30px;
+grid-row-gap: 30px;
+}
+.item img{
+width: 100%;
+height: 300px;
+object-fit: cover;
+cursor: pointer;
+transition: 0.2s ease;
+}
+.item img:hover{
+transform: scale(1.04);
+}
+.item h3{
+padding: 5px;
+text-align: center;
+}
+</style>
+</head>
+<body bgcolor=#f0ffff>
+<font style=veranda size=20>
+Your previous orders will be displayed here.<br/>
+Order something now...&#128523<br/><br/>
+</font>
+<font style=veranda size=5>
+FOOD SUGGESTIONS:
+</font>
+<font color="black">
+<section class="items">
+<div class="item">
+<img src="pizza.jpg">
+<h3>Pizza</h3>
+<center>
+<a href="pay.html">
+<button>Order</button></a>
+</center>
+</div>
+<div class="item">
+<img src="shawarma.jpg">
+<h3>Shawarma</h3>
+<center>
+<a href="pay.html">
+<button>Order</button></a>
+</center>
+</div>
+<div class="item">
+<img src="pani puri.jpg">
+<h3>Pani puri</h3>
+<center>
+<a href="pay.html">
+<button>Order</button></a>
+</center>
+</div>
+<div class="item">
+<img src="naan.jpg">
+<h3>Naan</h3>
+<center>
+<a href="pay.html">
+<button>Order</button></a>
+</center>
+</div>
+<div class="item">
+<img src="cappuccino.jpg">
+<h3>Cappuccino</h3>
+<center>
+<a href="pay.html">
+<button>Order</button></a>
+</center>
+</div>
+<div class="item">
+<img src="gulab jamun.jpg">
+<h3>Gulab Jamun</h3>
+<center>
+<a href="pay.html">
+<button>Order</button></a>
+</center>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Credit/Debit Wallet</title>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .balance {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      .credit {
+        color: green;
+      }
+      .debit {
+        color: red;
+.button{
+padding: 5px 30px;
+border: none;
+outline: none;
+background-color: #9966cc;
+color: white;
+cursor: pointer;
+border-radius: 4px;
+font-size: 17px;
+transition: 0.2s all;
+}
+.button:hover{
+transform: scale(1.08);
+}
+      }
+    </style>
+  </head>
+  <body>
+    <font style=veranda size=20 color="#9966cc"> Credit/Debit Wallet</font><br/><br/>
+    <form><h3>
+       <label for="mobile">Mobile:</label>
+       <input type=text value"mobile"/><br/><br/>
+      <label for="amount">Amount:</label></h3>
+      <input type="number" id="amount" name="amount" min="1" required>
+      <br/></br><h3>
+      <label for="type">Type:</label></h3>
+      <select id="type" name="type">
+        <option value="credit">Credit</option>
+        <option value="debit">Debit</option>
+      </select>
+      <br/><br/>
+      <button type="submit">Update Wallet</button>
+    </form>
+    <div id="balance" class="balance"></div>
+    <div id="message"></div>
+    <script>
+      var walletBalance = 0;
+
+      function updateWallet(amount, type) {
+        if (type === 'credit') {
+          // Credit the wallet
+          walletBalance += amount;
+          return walletBalance;
+        } else if (type === 'debit') {
+          // Debit the wallet
+          if (amount > walletBalance) {
+            return 'Insufficient funds';
+          } else {
+            walletBalance -= amount;
+            return walletBalance;
+          }
+        }
+      }
+
+      function updateMessage(amount, type, balance) {
+        var message = 'Updated wallet by $' + amount + '.';
+        if (type === 'credit') {
+          message += ' Credited';
+          document.querySelector('#message').classList.add('credit');
+        } else if (type === 'debit') {
+          message += ' Debited';
+          document.querySelector('#message').classList.add('debit');
+        }
+        message += ' new balance is $' + balance + '.';
+        return message;
+      }
+
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var amount = parseInt(document.querySelector('#amount').value);
+        var type = document.querySelector('#type').value;
+        var newBalance = updateWallet(amount, type);
+        document.querySelector('#balance').textContent = 'Current balance: $' + newBalance;
+        var message = updateMessage(amount, type, newBalance);
+        document.querySelector('#message').textContent = message;
+        document.querySelector('#amount').value = '';
+        document.querySelector('#type').value = 'credit';
+        document.querySelector('#message').classList.remove('credit', 'debit');
+      });
+    </script>
+<a href="account.html">
+<button>Continue</button></a>
+  </body>
+</html>
